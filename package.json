@@ -124,5 +124,5 @@
     "test:once": "karma start karma.conf.js --single-run"
   },
   "typings": "./angularx-social-auth.d.ts",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
