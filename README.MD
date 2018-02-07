@@ -6,10 +6,10 @@ Check out the [demo](https://abacritt.github.io/angularx-social-login/).
 
 ## Getting started
 
-### Install via npm 
+### Install via npm
 
 ```sh
-npm install --save angularx-social-login
+npm install --save angularx-social-auth
 ```
 
 ### Import the module
@@ -17,17 +17,29 @@ npm install --save angularx-social-login
 In your `AppModule`, import the `SocialLoginModule`
 
 ```javascript
-import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
-import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LoginOpt } from "angular4-social-auth";
+
+// OPTIONAL: custom config for login
+const fbLoginOptions: LoginOpt = {
+  scope: 'pages_messaging,pages_messaging_subscriptions,email,pages_show_list,manage_pages',
+  return_scopes: true,
+  enable_profile_selector: true
+}; // https://developers.facebook.com/docs/reference/javascript/FB.login/v2.11
+
+const googleLoginOptions: LoginOpt = {
+  scope: 'profile email'
+}; // https://developers.google.com/api-client-library/javascript/reference/referencedocs#gapiauth2clientconfig
+
 
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id", googleLoginOptions)
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
+    provider: new FacebookLoginProvider("Facebook-App-Id", fbLoginOptions)
   }
 ]);
 
@@ -48,8 +60,8 @@ export class AppModule { }
 ### Sign in and out users
 
 ```javascript
-import { AuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { AuthService } from "angularx-social-auth";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-auth";
 
 @Component({
   selector: 'app-demo',
@@ -80,8 +92,8 @@ export class DemoComponent implements OnInit {
 You are notified when user logs in or logs out. You receive a `SocialUser` object when the user logs in and a `null` when the user logs out. `SocialUser` object contains basic user information such as name, email, photo URL, etc.
 
 ```javascript
-import { AuthService } from "angularx-social-login";
-import { SocialUser } from "angularx-social-login";
+import { AuthService } from "angularx-social-auth";
+import { SocialUser } from "angularx-social-auth";
 
 @Component({
   selector: 'app-demo',
@@ -117,7 +129,7 @@ export class DemoComponent implements OnInit {
 
 ## Building with AoT
 
-If you are facing issue in building your app with AoT, check [this document](https://github.com/abacritt/angularx-social-login/blob/master/README-AOT.md).
+If you are facing issue in building your app with AoT, check [this document](https://github.com/jarakkal/angularx-social-auth/blob/master/README.MD).
 
 ## Running the demo app
 
