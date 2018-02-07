@@ -1,11 +1,15 @@
-import { BaseLoginProvider } from "../entities/base-login-provider";
-import { SocialUser } from "../entities/user";
+import { BaseLoginProvider } from '../entities/base-login-provider';
+import { SocialUser } from '../entities/user';
+import { LoginOpt } from '../auth.service';
 export declare class GoogleLoginProvider extends BaseLoginProvider {
     private clientId;
+    private opt;
     static readonly PROVIDER_ID: string;
     protected auth2: any;
-    constructor(clientId: string);
+    constructor(clientId: string, opt?: LoginOpt);
     initialize(): Promise<SocialUser>;
     signIn(): Promise<SocialUser>;
     signOut(): Promise<any>;
+    revokeAuth(): Promise<any>;
+    verifyStatus(): Promise<SocialUser>;
 }
