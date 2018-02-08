@@ -1,8 +1,4 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core'], factory) :
-	(factory((global.AngularSocialLogin = global.AngularSocialLogin || {}),global.ng.core));
-}(this, (function (exports,_angular_core) { 'use strict';
+import { Attribute, ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, EventEmitter, Host, Inject, Injectable, InjectionToken, Input, IterableDiffers, KeyValueDiffers, LOCALE_ID, NgModule, NgModuleRef, Optional, Pipe, Renderer2, TemplateRef, Version, ViewContainerRef, WrappedValue, isDevMode, ɵisListLikeIterable, ɵisObservable, ɵisPromise, ɵstringify } from '@angular/core';
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -22669,7 +22665,7 @@ var AuthService = /** @class */ (function () {
     AuthService.ERR_LOGIN_PROVIDER_NOT_FOUND = 'Login provider not found';
     AuthService.ERR_NOT_LOGGED_IN = 'Not logged in';
     AuthService.decorators = [
-        { type: _angular_core.Injectable },
+        { type: Injectable },
     ];
     /** @nocollapse */
     AuthService.ctorParameters = function () { return [
@@ -22752,7 +22748,7 @@ var PlatformLocation = /** @class */ (function () {
  * \@whatItDoes indicates when a location is initialized
  * \@experimental
  */
-var LOCATION_INITIALIZED = new _angular_core.InjectionToken('Location Initialized');
+var LOCATION_INITIALIZED = new InjectionToken('Location Initialized');
 /**
  * A serializable version of the event from onPopState or onHashChange
  *
@@ -22822,7 +22818,7 @@ var LocationStrategy = /** @class */ (function () {
  *
  * \@stable
  */
-var APP_BASE_HREF = new _angular_core.InjectionToken('appBaseHref');
+var APP_BASE_HREF = new InjectionToken('appBaseHref');
 
 /**
  * @fileoverview added by tsickle
@@ -22867,7 +22863,7 @@ var Location = /** @class */ (function () {
         /**
          * \@internal
          */
-        this._subject = new _angular_core.EventEmitter();
+        this._subject = new EventEmitter();
         this._platformStrategy = platformStrategy;
         var /** @type {?} */ browserBaseHref = this._platformStrategy.getBaseHref();
         this._baseHref = Location.stripTrailingSlash(_stripIndexHtml(browserBaseHref));
@@ -23123,7 +23119,7 @@ var Location = /** @class */ (function () {
         return url.slice(0, droppedSlashIdx) + url.slice(pathEndIdx);
     };
     Location.decorators = [
-        { type: _angular_core.Injectable },
+        { type: Injectable },
     ];
     /** @nocollapse */
     Location.ctorParameters = function () { return [
@@ -23291,12 +23287,12 @@ var HashLocationStrategy = /** @class */ (function (_super) {
      */
     function () { this._platformLocation.back(); };
     HashLocationStrategy.decorators = [
-        { type: _angular_core.Injectable },
+        { type: Injectable },
     ];
     /** @nocollapse */
     HashLocationStrategy.ctorParameters = function () { return [
         { type: PlatformLocation, },
-        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [APP_BASE_HREF,] },] },
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [APP_BASE_HREF,] },] },
     ]; };
     return HashLocationStrategy;
 }(LocationStrategy));
@@ -23448,12 +23444,12 @@ var PathLocationStrategy = /** @class */ (function (_super) {
      */
     function () { this._platformLocation.back(); };
     PathLocationStrategy.decorators = [
-        { type: _angular_core.Injectable },
+        { type: Injectable },
     ];
     /** @nocollapse */
     PathLocationStrategy.ctorParameters = function () { return [
         { type: PlatformLocation, },
-        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [APP_BASE_HREF,] },] },
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [APP_BASE_HREF,] },] },
     ]; };
     return PathLocationStrategy;
 }(LocationStrategy));
@@ -24144,7 +24140,7 @@ function getCurrencySymbol(code, format) {
 /**
  * @deprecated from v5
  */
-var DEPRECATED_PLURAL_FN = new _angular_core.InjectionToken('UseV4Plurals');
+var DEPRECATED_PLURAL_FN = new InjectionToken('UseV4Plurals');
 /**
  * \@experimental
  * @abstract
@@ -24221,12 +24217,12 @@ var NgLocaleLocalization = /** @class */ (function (_super) {
         }
     };
     NgLocaleLocalization.decorators = [
-        { type: _angular_core.Injectable },
+        { type: Injectable },
     ];
     /** @nocollapse */
     NgLocaleLocalization.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_core.LOCALE_ID,] },] },
-        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [DEPRECATED_PLURAL_FN,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [DEPRECATED_PLURAL_FN,] },] },
     ]; };
     return NgLocaleLocalization;
 }(NgLocalization));
@@ -24302,7 +24298,7 @@ var NgClass = /** @class */ (function () {
             this._keyValueDiffer = null;
             this._rawClass = typeof v === 'string' ? v.split(/\s+/) : v;
             if (this._rawClass) {
-                if (_angular_core.ɵisListLikeIterable(this._rawClass)) {
+                if (ɵisListLikeIterable(this._rawClass)) {
                     this._iterableDiffer = this._iterableDiffers.find(this._rawClass).create();
                 }
                 else {
@@ -24378,7 +24374,7 @@ var NgClass = /** @class */ (function () {
                 _this._toggleClass(record.item, true);
             }
             else {
-                throw new Error("NgClass can only toggle CSS classes expressed as strings, got " + _angular_core.ɵstringify(record.item));
+                throw new Error("NgClass can only toggle CSS classes expressed as strings, got " + ɵstringify(record.item));
             }
         });
         changes.forEachRemovedItem(function (record) { return _this._toggleClass(record.item, false); });
@@ -24444,18 +24440,18 @@ var NgClass = /** @class */ (function () {
         }
     };
     NgClass.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngClass]' },] },
+        { type: Directive, args: [{ selector: '[ngClass]' },] },
     ];
     /** @nocollapse */
     NgClass.ctorParameters = function () { return [
-        { type: _angular_core.IterableDiffers, },
-        { type: _angular_core.KeyValueDiffers, },
-        { type: _angular_core.ElementRef, },
-        { type: _angular_core.Renderer2, },
+        { type: IterableDiffers, },
+        { type: KeyValueDiffers, },
+        { type: ElementRef, },
+        { type: Renderer2, },
     ]; };
     NgClass.propDecorators = {
-        "klass": [{ type: _angular_core.Input, args: ['class',] },],
-        "ngClass": [{ type: _angular_core.Input },],
+        "klass": [{ type: Input, args: ['class',] },],
+        "ngClass": [{ type: Input },],
     };
     return NgClass;
 }());
@@ -24548,7 +24544,7 @@ var NgComponentOutlet = /** @class */ (function () {
                 if (this._moduleRef)
                     this._moduleRef.destroy();
                 if (this.ngComponentOutletNgModuleFactory) {
-                    var /** @type {?} */ parentModule = elInjector.get(_angular_core.NgModuleRef);
+                    var /** @type {?} */ parentModule = elInjector.get(NgModuleRef);
                     this._moduleRef = this.ngComponentOutletNgModuleFactory.create(parentModule.injector);
                 }
                 else {
@@ -24556,7 +24552,7 @@ var NgComponentOutlet = /** @class */ (function () {
                 }
             }
             var /** @type {?} */ componentFactoryResolver = this._moduleRef ? this._moduleRef.componentFactoryResolver :
-                elInjector.get(_angular_core.ComponentFactoryResolver);
+                elInjector.get(ComponentFactoryResolver);
             var /** @type {?} */ componentFactory = componentFactoryResolver.resolveComponentFactory(this.ngComponentOutlet);
             this._componentRef = this._viewContainerRef.createComponent(componentFactory, this._viewContainerRef.length, elInjector, this.ngComponentOutletContent);
         }
@@ -24572,17 +24568,17 @@ var NgComponentOutlet = /** @class */ (function () {
             this._moduleRef.destroy();
     };
     NgComponentOutlet.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngComponentOutlet]' },] },
+        { type: Directive, args: [{ selector: '[ngComponentOutlet]' },] },
     ];
     /** @nocollapse */
     NgComponentOutlet.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
+        { type: ViewContainerRef, },
     ]; };
     NgComponentOutlet.propDecorators = {
-        "ngComponentOutlet": [{ type: _angular_core.Input },],
-        "ngComponentOutletInjector": [{ type: _angular_core.Input },],
-        "ngComponentOutletContent": [{ type: _angular_core.Input },],
-        "ngComponentOutletNgModuleFactory": [{ type: _angular_core.Input },],
+        "ngComponentOutlet": [{ type: Input },],
+        "ngComponentOutletInjector": [{ type: Input },],
+        "ngComponentOutletContent": [{ type: Input },],
+        "ngComponentOutletNgModuleFactory": [{ type: Input },],
     };
     return NgComponentOutlet;
 }());
@@ -24729,7 +24725,7 @@ var NgForOf = /** @class */ (function () {
          * @return {?}
          */
         function (fn) {
-            if (_angular_core.isDevMode() && fn != null && typeof fn !== 'function') {
+            if (isDevMode() && fn != null && typeof fn !== 'function') {
                 // TODO(vicb): use a log service once there is a public one available
                 if (/** @type {?} */ (console) && /** @type {?} */ (console.warn)) {
                     console.warn("trackBy must be a function, but received " + JSON.stringify(fn) + ". " +
@@ -24846,18 +24842,18 @@ var NgForOf = /** @class */ (function () {
         view.context.$implicit = record.item;
     };
     NgForOf.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngFor][ngForOf]' },] },
+        { type: Directive, args: [{ selector: '[ngFor][ngForOf]' },] },
     ];
     /** @nocollapse */
     NgForOf.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
-        { type: _angular_core.TemplateRef, },
-        { type: _angular_core.IterableDiffers, },
+        { type: ViewContainerRef, },
+        { type: TemplateRef, },
+        { type: IterableDiffers, },
     ]; };
     NgForOf.propDecorators = {
-        "ngForOf": [{ type: _angular_core.Input },],
-        "ngForTrackBy": [{ type: _angular_core.Input },],
-        "ngForTemplate": [{ type: _angular_core.Input },],
+        "ngForOf": [{ type: Input },],
+        "ngForTrackBy": [{ type: Input },],
+        "ngForTemplate": [{ type: Input },],
     };
     return NgForOf;
 }());
@@ -25053,17 +25049,17 @@ var NgIf = /** @class */ (function () {
         }
     };
     NgIf.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngIf]' },] },
+        { type: Directive, args: [{ selector: '[ngIf]' },] },
     ];
     /** @nocollapse */
     NgIf.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
-        { type: _angular_core.TemplateRef, },
+        { type: ViewContainerRef, },
+        { type: TemplateRef, },
     ]; };
     NgIf.propDecorators = {
-        "ngIf": [{ type: _angular_core.Input },],
-        "ngIfThen": [{ type: _angular_core.Input },],
-        "ngIfElse": [{ type: _angular_core.Input },],
+        "ngIf": [{ type: Input },],
+        "ngIfThen": [{ type: Input },],
+        "ngIfElse": [{ type: Input },],
     };
     return NgIf;
 }());
@@ -25262,12 +25258,12 @@ var NgSwitch = /** @class */ (function () {
         }
     };
     NgSwitch.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngSwitch]' },] },
+        { type: Directive, args: [{ selector: '[ngSwitch]' },] },
     ];
     /** @nocollapse */
     NgSwitch.ctorParameters = function () { return []; };
     NgSwitch.propDecorators = {
-        "ngSwitch": [{ type: _angular_core.Input },],
+        "ngSwitch": [{ type: Input },],
     };
     return NgSwitch;
 }());
@@ -25309,16 +25305,16 @@ var NgSwitchCase = /** @class */ (function () {
      */
     function () { this._view.enforceState(this.ngSwitch._matchCase(this.ngSwitchCase)); };
     NgSwitchCase.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngSwitchCase]' },] },
+        { type: Directive, args: [{ selector: '[ngSwitchCase]' },] },
     ];
     /** @nocollapse */
     NgSwitchCase.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
-        { type: _angular_core.TemplateRef, },
-        { type: NgSwitch, decorators: [{ type: _angular_core.Host },] },
+        { type: ViewContainerRef, },
+        { type: TemplateRef, },
+        { type: NgSwitch, decorators: [{ type: Host },] },
     ]; };
     NgSwitchCase.propDecorators = {
-        "ngSwitchCase": [{ type: _angular_core.Input },],
+        "ngSwitchCase": [{ type: Input },],
     };
     return NgSwitchCase;
 }());
@@ -25350,13 +25346,13 @@ var NgSwitchDefault = /** @class */ (function () {
         ngSwitch._addDefault(new SwitchView(viewContainer, templateRef));
     }
     NgSwitchDefault.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngSwitchDefault]' },] },
+        { type: Directive, args: [{ selector: '[ngSwitchDefault]' },] },
     ];
     /** @nocollapse */
     NgSwitchDefault.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
-        { type: _angular_core.TemplateRef, },
-        { type: NgSwitch, decorators: [{ type: _angular_core.Host },] },
+        { type: ViewContainerRef, },
+        { type: TemplateRef, },
+        { type: NgSwitch, decorators: [{ type: Host },] },
     ]; };
     return NgSwitchDefault;
 }());
@@ -25468,14 +25464,14 @@ var NgPlural = /** @class */ (function () {
         }
     };
     NgPlural.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngPlural]' },] },
+        { type: Directive, args: [{ selector: '[ngPlural]' },] },
     ];
     /** @nocollapse */
     NgPlural.ctorParameters = function () { return [
         { type: NgLocalization, },
     ]; };
     NgPlural.propDecorators = {
-        "ngPlural": [{ type: _angular_core.Input },],
+        "ngPlural": [{ type: Input },],
     };
     return NgPlural;
 }());
@@ -25504,14 +25500,14 @@ var NgPluralCase = /** @class */ (function () {
         ngPlural.addCase(isANumber ? "=" + value : value, new SwitchView(viewContainer, template));
     }
     NgPluralCase.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngPluralCase]' },] },
+        { type: Directive, args: [{ selector: '[ngPluralCase]' },] },
     ];
     /** @nocollapse */
     NgPluralCase.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Attribute, args: ['ngPluralCase',] },] },
-        { type: _angular_core.TemplateRef, },
-        { type: _angular_core.ViewContainerRef, },
-        { type: NgPlural, decorators: [{ type: _angular_core.Host },] },
+        { type: undefined, decorators: [{ type: Attribute, args: ['ngPluralCase',] },] },
+        { type: TemplateRef, },
+        { type: ViewContainerRef, },
+        { type: NgPlural, decorators: [{ type: Host },] },
     ]; };
     return NgPluralCase;
 }());
@@ -25618,16 +25614,16 @@ var NgStyle = /** @class */ (function () {
         }
     };
     NgStyle.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngStyle]' },] },
+        { type: Directive, args: [{ selector: '[ngStyle]' },] },
     ];
     /** @nocollapse */
     NgStyle.ctorParameters = function () { return [
-        { type: _angular_core.KeyValueDiffers, },
-        { type: _angular_core.ElementRef, },
-        { type: _angular_core.Renderer2, },
+        { type: KeyValueDiffers, },
+        { type: ElementRef, },
+        { type: Renderer2, },
     ]; };
     NgStyle.propDecorators = {
-        "ngStyle": [{ type: _angular_core.Input },],
+        "ngStyle": [{ type: Input },],
     };
     return NgStyle;
 }());
@@ -25762,15 +25758,15 @@ var NgTemplateOutlet = /** @class */ (function () {
         }
     };
     NgTemplateOutlet.decorators = [
-        { type: _angular_core.Directive, args: [{ selector: '[ngTemplateOutlet]' },] },
+        { type: Directive, args: [{ selector: '[ngTemplateOutlet]' },] },
     ];
     /** @nocollapse */
     NgTemplateOutlet.ctorParameters = function () { return [
-        { type: _angular_core.ViewContainerRef, },
+        { type: ViewContainerRef, },
     ]; };
     NgTemplateOutlet.propDecorators = {
-        "ngTemplateOutletContext": [{ type: _angular_core.Input },],
-        "ngTemplateOutlet": [{ type: _angular_core.Input },],
+        "ngTemplateOutletContext": [{ type: Input },],
+        "ngTemplateOutlet": [{ type: Input },],
     };
     return NgTemplateOutlet;
 }());
@@ -26475,7 +26471,7 @@ function convertTimezoneToLocal(date, timezone, reverse) {
  * @return {?}
  */
 function invalidPipeArgumentError(type, value) {
-    return Error("InvalidPipeArgument: '" + value + "' for pipe '" + _angular_core.ɵstringify(type) + "'");
+    return Error("InvalidPipeArgument: '" + value + "' for pipe '" + ɵstringify(type) + "'");
 }
 
 /**
@@ -26662,11 +26658,11 @@ var DatePipe = /** @class */ (function () {
         return formatDate(date, format, locale || this.locale, timezone);
     };
     DatePipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'date', pure: true },] },
+        { type: Pipe, args: [{ name: 'date', pure: true },] },
     ];
     /** @nocollapse */
     DatePipe.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_core.LOCALE_ID,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
     ]; };
     return DatePipe;
 }());
@@ -27228,7 +27224,7 @@ var AsyncPipe = /** @class */ (function () {
             return this._latestReturnedValue;
         }
         this._latestReturnedValue = this._latestValue;
-        return _angular_core.WrappedValue.wrap(this._latestValue);
+        return WrappedValue.wrap(this._latestValue);
     };
     /**
      * @param {?} obj
@@ -27253,10 +27249,10 @@ var AsyncPipe = /** @class */ (function () {
      * @return {?}
      */
     function (obj) {
-        if (_angular_core.ɵisPromise(obj)) {
+        if (ɵisPromise(obj)) {
             return _promiseStrategy;
         }
-        if (_angular_core.ɵisObservable(obj)) {
+        if (ɵisObservable(obj)) {
             return _observableStrategy;
         }
         throw invalidPipeArgumentError(AsyncPipe, obj);
@@ -27291,11 +27287,11 @@ var AsyncPipe = /** @class */ (function () {
         }
     };
     AsyncPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'async', pure: false },] },
+        { type: Pipe, args: [{ name: 'async', pure: false },] },
     ];
     /** @nocollapse */
     AsyncPipe.ctorParameters = function () { return [
-        { type: _angular_core.ChangeDetectorRef, },
+        { type: ChangeDetectorRef, },
     ]; };
     return AsyncPipe;
 }());
@@ -27338,7 +27334,7 @@ var LowerCasePipe = /** @class */ (function () {
         return value.toLowerCase();
     };
     LowerCasePipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'lowercase' },] },
+        { type: Pipe, args: [{ name: 'lowercase' },] },
     ];
     /** @nocollapse */
     LowerCasePipe.ctorParameters = function () { return []; };
@@ -27381,7 +27377,7 @@ var TitleCasePipe = /** @class */ (function () {
         return value.split(/\b/g).map(function (word) { return titleCaseWord(word); }).join('');
     };
     TitleCasePipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'titlecase' },] },
+        { type: Pipe, args: [{ name: 'titlecase' },] },
     ];
     /** @nocollapse */
     TitleCasePipe.ctorParameters = function () { return []; };
@@ -27412,7 +27408,7 @@ var UpperCasePipe = /** @class */ (function () {
         return value.toUpperCase();
     };
     UpperCasePipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'uppercase' },] },
+        { type: Pipe, args: [{ name: 'uppercase' },] },
     ];
     /** @nocollapse */
     UpperCasePipe.ctorParameters = function () { return []; };
@@ -27476,7 +27472,7 @@ var I18nPluralPipe = /** @class */ (function () {
         return pluralMap[key].replace(_INTERPOLATION_REGEXP, value.toString());
     };
     I18nPluralPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'i18nPlural', pure: true },] },
+        { type: Pipe, args: [{ name: 'i18nPlural', pure: true },] },
     ];
     /** @nocollapse */
     I18nPluralPipe.ctorParameters = function () { return [
@@ -27541,7 +27537,7 @@ var I18nSelectPipe = /** @class */ (function () {
         return '';
     };
     I18nSelectPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'i18nSelect', pure: true },] },
+        { type: Pipe, args: [{ name: 'i18nSelect', pure: true },] },
     ];
     /** @nocollapse */
     I18nSelectPipe.ctorParameters = function () { return []; };
@@ -27585,7 +27581,7 @@ var JsonPipe = /** @class */ (function () {
      */
     function (value) { return JSON.stringify(value, null, 2); };
     JsonPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'json', pure: false },] },
+        { type: Pipe, args: [{ name: 'json', pure: false },] },
     ];
     /** @nocollapse */
     JsonPipe.ctorParameters = function () { return []; };
@@ -27656,11 +27652,11 @@ var DecimalPipe = /** @class */ (function () {
         return str;
     };
     DecimalPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'number' },] },
+        { type: Pipe, args: [{ name: 'number' },] },
     ];
     /** @nocollapse */
     DecimalPipe.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_core.LOCALE_ID,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
     ]; };
     return DecimalPipe;
 }());
@@ -27710,11 +27706,11 @@ var PercentPipe = /** @class */ (function () {
         return str;
     };
     PercentPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'percent' },] },
+        { type: Pipe, args: [{ name: 'percent' },] },
     ];
     /** @nocollapse */
     PercentPipe.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_core.LOCALE_ID,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
     ]; };
     return PercentPipe;
 }());
@@ -27787,11 +27783,11 @@ var CurrencyPipe = /** @class */ (function () {
         return str;
     };
     CurrencyPipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'currency' },] },
+        { type: Pipe, args: [{ name: 'currency' },] },
     ];
     /** @nocollapse */
     CurrencyPipe.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_core.LOCALE_ID,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
     ]; };
     return CurrencyPipe;
 }());
@@ -27891,7 +27887,7 @@ var SlicePipe = /** @class */ (function () {
      */
     function (obj) { return typeof obj === 'string' || Array.isArray(obj); };
     SlicePipe.decorators = [
-        { type: _angular_core.Pipe, args: [{ name: 'slice', pure: false },] },
+        { type: Pipe, args: [{ name: 'slice', pure: false },] },
     ];
     /** @nocollapse */
     SlicePipe.ctorParameters = function () { return []; };
@@ -27947,7 +27943,7 @@ var CommonModule = /** @class */ (function () {
     function CommonModule() {
     }
     CommonModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
+        { type: NgModule, args: [{
                     declarations: [COMMON_DIRECTIVES, COMMON_PIPES],
                     exports: [COMMON_DIRECTIVES, COMMON_PIPES],
                     providers: [
@@ -27978,7 +27974,7 @@ var CommonModule = /** @class */ (function () {
  *
  * \@stable
  */
-var DOCUMENT = new _angular_core.InjectionToken('DocumentToken');
+var DOCUMENT = new InjectionToken('DocumentToken');
 
 /**
  * @fileoverview added by tsickle
@@ -27994,7 +27990,7 @@ var DOCUMENT = new _angular_core.InjectionToken('DocumentToken');
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.2.2');
+var VERSION = new Version('5.2.2');
 
 /**
  * @fileoverview added by tsickle
@@ -28029,7 +28025,7 @@ var SocialLoginModule = /** @class */ (function () {
         };
     };
     SocialLoginModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
+        { type: NgModule, args: [{
                     imports: [
                         CommonModule
                     ],
@@ -28396,15 +28392,5 @@ var FacebookLoginProvider = /** @class */ (function (_super) {
  * Generated bundle index. Do not edit.
  */
 
-exports.AuthService = AuthService;
-exports.SocialLoginModule = SocialLoginModule;
-exports.SocialUser = SocialUser;
-exports.GoogleLoginProvider = GoogleLoginProvider;
-exports.FacebookLoginProvider = FacebookLoginProvider;
-exports.AuthServiceConfig = AuthServiceConfig;
-exports.ɵb = BaseLoginProvider;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-//# sourceMappingURL=angularx-social-auth.umd.js.map
+export { AuthService, SocialLoginModule, SocialUser, GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig, BaseLoginProvider as ɵb };
+//# sourceMappingURL=angularx-social-auth.es5.js.map
