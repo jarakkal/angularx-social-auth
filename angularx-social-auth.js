@@ -6791,7 +6791,7 @@ var AjaxSubscriber = (function (_super) {
             }
             subscriber.error(new AjaxTimeoutError$1(this, request)); //TODO: Make betterer.
         }
-
+        
         xhr.ontimeout = xhrTimeout;
         xhrTimeout.request = request;
         xhrTimeout.subscriber = this;
@@ -6851,7 +6851,7 @@ var AjaxSubscriber = (function (_super) {
                 }
             }
         }
-
+        
         xhr.onreadystatechange = xhrReadyStateChange;
         xhrReadyStateChange.subscriber = this;
         xhrReadyStateChange.progressSubscriber = progressSubscriber;
@@ -28298,4 +28298,4 @@ FacebookLoginProvider.PROVIDER_ID = 'FACEBOOK';
  */
 
 export { AuthService, SocialLoginModule, SocialUser, GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig, BaseLoginProvider as ɵb };
-//# sourceMappingURL=angularx-social-auth.js.map
+//# sourceMappingURL=sawit-angular-social-login.js.map
